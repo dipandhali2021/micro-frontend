@@ -129,9 +129,12 @@
 							"projects/products-app/src/assets"
 						],
 						"styles": [
-							"projects/products-app/src/styles.css"
+							"projects/products-app/src/styles.css",
+							"./node_modules/bootstrap/dist/css/bootstrap.min.css"
 						],
-						"scripts": [],
+						"scripts": [
+							"./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+						],
 						"extraWebpackConfig": "projects/products-app/webpack.config.js",
 						"commonChunk": false
 					},
@@ -216,7 +219,7 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
+					"builder": "ngx-build-plus:browser",
 					"options": {
 						"outputPath": "dist/carts-app",
 						"index": "projects/carts-app/src/index.html",
@@ -232,7 +235,9 @@
 						"styles": [
 							"projects/carts-app/src/styles.css"
 						],
-						"scripts": []
+						"scripts": [],
+						"extraWebpackConfig": "projects/carts-app/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -248,7 +253,8 @@
 									"maximumError": "4kb"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/carts-app/webpack.prod.config.js"
 						},
 						"development": {
 							"buildOptimizer": false,
@@ -262,21 +268,28 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
+					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"browserTarget": "carts-app:build:production"
+							"browserTarget": "carts-app:build:production",
+							"extraWebpackConfig": "projects/carts-app/webpack.prod.config.js"
 						},
 						"development": {
 							"browserTarget": "carts-app:build:development"
 						}
 					},
-					"defaultConfiguration": "development"
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 2000,
+						"publicHost": "http://localhost:2000",
+						"extraWebpackConfig": "projects/carts-app/webpack.config.js"
+					}
 				},
 				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"builder": "ngx-build-plus:extract-i18n",
 					"options": {
-						"browserTarget": "carts-app:build"
+						"browserTarget": "carts-app:build",
+						"extraWebpackConfig": "projects/carts-app/webpack.config.js"
 					}
 				},
 				"test": {
