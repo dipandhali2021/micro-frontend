@@ -3,9 +3,9 @@ const {shareAll,withModuleFederationPlugin} = require("@angular-architects/modul
 module.exports = withModuleFederationPlugin({
   
   remotes: {
-    'products': 'http://localhost:4000/remoteEntry.js',
-    'carts': 'http://localhost:2000/remoteEntry.js',
-    'orders': 'http://localhost:3000/remoteEntry.js',
+    'products': 'https://micro-frontend-products-app.vercel.app/remoteEntry.js',
+    'carts': 'https://micro-frontend-carts-app.vercel.app/remoteEntry.js',
+    'orders': 'https://micro-frontend-orders-app.vercel.app/remoteEntry.js',
   },
 
 
