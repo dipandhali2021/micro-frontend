@@ -3,7 +3,7 @@ const {shareAll,withModuleFederationPlugin, share} = require("@angular-architect
 module.exports = withModuleFederationPlugin({
   name: "products",
   exposes: {
-    './Module': './projects/products-app/src/app/products/products.module.ts',
+    './Module': './projects/products-app/src/app/view/products/products.module.ts',
   },
   shared:{
     ...shareAll({

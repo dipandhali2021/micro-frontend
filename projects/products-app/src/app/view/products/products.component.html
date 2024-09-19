@@ -1,0 +1,27 @@
+<div class="row m-2">
+  <div class="col-md-6" >
+    <input type="text" placeholder="Search" class="form-control border-success">
+  </div>
+</div>
+
+<div class="row m-2">
+  <div class="col-md-3 mb-4" *ngFor="let product of products">
+    <div class="card border-primary h-100" style="max-width: 20rem;">
+      <img class="card-img-top" src="{{product.image}}" style="aspect-ratio: 1;" alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text"> {{product.title}} </p>
+      </div>
+      <div class="card-footer" >
+        <div class="row">
+          <div class="col-md-6">
+            <p><b>Price: {{product.price| currency:'INR'}}</b></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <button class="btn btn-primary" >Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
